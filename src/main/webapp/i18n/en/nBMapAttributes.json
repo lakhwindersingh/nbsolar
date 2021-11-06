@@ -1,0 +1,31 @@
+{
+  "nbSolarApp": {
+    "nBMapAttributes": {
+      "home": {
+        "title": "NB Map Attributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new NB Map Attributes",
+        "createOrEditLabel": "Create or edit a NB Map Attributes",
+        "notFound": "No NB Map Attributes found"
+      },
+      "created": "A new NB Map Attributes is created with identifier {{ param }}",
+      "updated": "A NB Map Attributes is updated with identifier {{ param }}",
+      "deleted": "A NB Map Attributes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete NB Map Attributes {{ id }}?"
+      },
+      "detail": {
+        "title": "NB Map Attributes"
+      },
+      "id": "ID",
+      "nbIDFK": "Nb IDFK",
+      "nbTitle": "Nb Title",
+      "nbTitleLocation": "Nb Title Location",
+      "nbPaletteIDFK": "Nb Palette IDFK",
+      "nbChartIDFK": "Nb Chart IDFK",
+      "nbChartType": "Nb Chart Type",
+      "nbLastUpdated": "Nb Last Updated",
+      "nbLastUpdatedBy": "Nb Last Updated By"
+    }
+  }
+}

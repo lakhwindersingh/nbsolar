@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="NBMapComponentsHeading">
+    <span jhiTranslate="nbSolarApp.nBMapComponents.home.title">NB Map Components</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="nbSolarApp.nBMapComponents.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nb-map-components"
+        [routerLink]="['/nb-map-components/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="nbSolarApp.nBMapComponents.home.createLabel"> Create a new NB Map Components </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="nBMapComponents?.length === 0">
+    <span jhiTranslate="nbSolarApp.nBMapComponents.home.notFound">No nBMapComponents found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="nBMapComponents && nBMapComponents.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbIDFK">Nb IDFK</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbComponentID">Nb Component ID</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbComponentType">Nb Component Type</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbComponentValue">Nb Component Value</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbDefault">Nb Default</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbLastUpdated">Nb Last Updated</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapComponents.nbLastUpdatedBy">Nb Last Updated By</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nBMapComponents of nBMapComponents; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nb-map-components', nBMapComponents.id, 'view']">{{ nBMapComponents.id }}</a>
+          </td>
+          <td>{{ nBMapComponents.nbIDFK }}</td>
+          <td>{{ nBMapComponents.nbComponentID }}</td>
+          <td>{{ nBMapComponents.nbComponentType }}</td>
+          <td>{{ nBMapComponents.nbComponentValue }}</td>
+          <td>{{ nBMapComponents.nbDefault }}</td>
+          <td>{{ nBMapComponents.nbLastUpdated }}</td>
+          <td>{{ nBMapComponents.nbLastUpdatedBy }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/nb-map-components', nBMapComponents.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/nb-map-components', nBMapComponents.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(nBMapComponents)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

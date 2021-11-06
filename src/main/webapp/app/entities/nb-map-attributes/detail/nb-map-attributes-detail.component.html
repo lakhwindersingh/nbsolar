@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nBMapAttributes">
+      <h2 data-cy="nBMapAttributesDetailsHeading"><span jhiTranslate="nbSolarApp.nBMapAttributes.detail.title">NB Map Attributes</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbIDFK">Nb IDFK</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbIDFK }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbTitle">Nb Title</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbTitleLocation">Nb Title Location</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbTitleLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbPaletteIDFK">Nb Palette IDFK</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbPaletteIDFK }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbChartIDFK">Nb Chart IDFK</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbChartIDFK }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbChartType">Nb Chart Type</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbChartType }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbLastUpdated">Nb Last Updated</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbLastUpdated }}</span>
+        </dd>
+        <dt><span jhiTranslate="nbSolarApp.nBMapAttributes.nbLastUpdatedBy">Nb Last Updated By</span></dt>
+        <dd>
+          <span>{{ nBMapAttributes.nbLastUpdatedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nb-map-attributes', nBMapAttributes.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

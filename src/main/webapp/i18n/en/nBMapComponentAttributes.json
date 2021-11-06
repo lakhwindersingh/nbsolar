@@ -1,0 +1,27 @@
+{
+  "nbSolarApp": {
+    "nBMapComponentAttributes": {
+      "home": {
+        "title": "NB Map Component Attributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new NB Map Component Attributes",
+        "createOrEditLabel": "Create or edit a NB Map Component Attributes",
+        "notFound": "No NB Map Component Attributes found"
+      },
+      "created": "A new NB Map Component Attributes is created with identifier {{ param }}",
+      "updated": "A NB Map Component Attributes is updated with identifier {{ param }}",
+      "deleted": "A NB Map Component Attributes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete NB Map Component Attributes {{ id }}?"
+      },
+      "detail": {
+        "title": "NB Map Component Attributes"
+      },
+      "id": "ID",
+      "nbComponentIDFK": "Nb Component IDFK",
+      "nbComponentName": "Nb Component Name",
+      "nbLastUpdated": "Nb Last Updated",
+      "nbLastUpdatedBy": "Nb Last Updated By"
+    }
+  }
+}
