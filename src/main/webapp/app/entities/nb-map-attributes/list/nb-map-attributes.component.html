@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="NBMapAttributesHeading">
+    <span jhiTranslate="nbSolarApp.nBMapAttributes.home.title">NB Map Attributes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="nbSolarApp.nBMapAttributes.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nb-map-attributes"
+        [routerLink]="['/nb-map-attributes/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="nbSolarApp.nBMapAttributes.home.createLabel"> Create a new NB Map Attributes </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="nBMapAttributes?.length === 0">
+    <span jhiTranslate="nbSolarApp.nBMapAttributes.home.notFound">No nBMapAttributes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="nBMapAttributes && nBMapAttributes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbIDFK">Nb IDFK</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbTitle">Nb Title</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbTitleLocation">Nb Title Location</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbPaletteIDFK">Nb Palette IDFK</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbChartIDFK">Nb Chart IDFK</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbChartType">Nb Chart Type</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbLastUpdated">Nb Last Updated</span></th>
+          <th scope="col"><span jhiTranslate="nbSolarApp.nBMapAttributes.nbLastUpdatedBy">Nb Last Updated By</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nBMapAttributes of nBMapAttributes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nb-map-attributes', nBMapAttributes.id, 'view']">{{ nBMapAttributes.id }}</a>
+          </td>
+          <td>{{ nBMapAttributes.nbIDFK }}</td>
+          <td>{{ nBMapAttributes.nbTitle }}</td>
+          <td>{{ nBMapAttributes.nbTitleLocation }}</td>
+          <td>{{ nBMapAttributes.nbPaletteIDFK }}</td>
+          <td>{{ nBMapAttributes.nbChartIDFK }}</td>
+          <td>{{ nBMapAttributes.nbChartType }}</td>
+          <td>{{ nBMapAttributes.nbLastUpdated }}</td>
+          <td>{{ nBMapAttributes.nbLastUpdatedBy }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/nb-map-attributes', nBMapAttributes.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/nb-map-attributes', nBMapAttributes.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(nBMapAttributes)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

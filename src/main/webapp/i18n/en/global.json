@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "nbUser": "NB User",
+        "nbMap": "NB Map",
+        "nbMapAttributes": "NB Map Attributes",
+        "nbPalette": "NB Palette",
+        "nbChart": "NB Chart",
+        "nbMapComponents": "NB Map Components",
+        "nbMapComponentAttributes": "NB Map Component Attributes",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
